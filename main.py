@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import koreanize-matplotlib
+import koreanize_matplotlib
 
 # CSV 파일 불러오기
 file_path = 'path_to_your_file/202406_202406_연령별인구현황_월간 (1).csv'
