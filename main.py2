@@ -1,0 +1,30 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+koreanize_matplotlib
+
+# 파일 경로와 파일 형식 지정
+file_path = 'your_file.csv'  # 파일의 경로를 여기에 지정하세요
+file_type = 'csv'  # 파일 형식에 따라 'csv', 'xlsx' 등으로 설정하세요
+
+# 데이터 파일을 읽어오기
+if file_type == 'csv':
+    df = pd.read_csv(file_path)
+elif file_type == 'xlsx':
+    df = pd.read_excel(file_path)
+else:
+    raise ValueError("지원되지 않는 파일 형식입니다.")
+
+# 데이터 구조 확인
+print(df.head())
+
+# 20세 미만 데이터 필터링
+df_young = df[df['age'] < 20]
+
+# 성별 비율 계산
+gender_counts = df_young['gender'].value_counts()
+
+# 원그래프 그리기
+plt.figure(figsize=(8, 6))
+plt.pie(gender_counts, labels=gender_counts.index, autopct='%1.1f%%', startangle=140, colors=['blue', 'pink'])
+plt.title('20세 미만의 성별 비율')
+plt.show()
